@@ -22,36 +22,26 @@ item_url = "http://127.0.0.1:8000/item/"
 
 # Create your views here.
 def home(request):
-    text = f"""
-    <h1>{"Изучаем django"}</h1>
-    <strong>{author['sh_name']}</strong>    
-    """
     return render(request, 'index.html')
 
 def about(request):
-    text = f"""
-    Имя: <b>{author['name']}</b><br>
-    Отчество: <b>{author['f_name']}</b><br>
-    Фамилия: <b>{author['surname']}</b><br>
-    телефон: <b>{author['ph_num']}</b><br>
-    email: <b>{author['email']}</b><br>
-    """
-    return HttpResponse(text)
+    context = {
+        "author": author
+    }
+    return render(request, 'about.html', context)
 
-def item_list(request, item_id):
-    text = ''
-    for el in items:
-        if el["id"] == item_id:
-            text = f"""
-            Товар: {el['name']}<br> 
-            Кол-во: {el["quantity"]}
-            """
-            return HttpResponse(text)
-    raise Http404(f"Товар с id={id} не найден")
+def item_id(request, item_id):
+
+    for item in items:
+        if item["id"] == item_id:
+            context = {
+                "item": item
+            }
+            return render(request, 'item.html', context)
+    raise Http404(f"Товар с id={item_id} не найден")
 
 def items_list(request):
-    text = "<ol>"
-    for item in items:
-        text += f"<li><a href ={item_url}{item['id']}>{item['name']}</a></li>"
-    text += "</ol>"
-    return HttpResponse(text)
+    context = {
+        "items": items
+    }
+    return render(request, 'items_list.html', context)

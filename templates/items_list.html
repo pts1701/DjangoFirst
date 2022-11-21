@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список товаров</title>
+</head>
+<header>
+    <a href="/">Домой</a> / <a href="/items">Список товаров</a>
+</header>
+<body>
+<h2>Список товаров</h2>
+<ol>
+    {% for item in items %}
+    <a href="/item/{{item.id}}"><li>{{ item.name }}</li></a>
+    {% endfor %}
+</ol>
+</body>
+</html>
