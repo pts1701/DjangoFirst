@@ -26,7 +26,7 @@ def home(request):
     <h1>{"Изучаем django"}</h1>
     <strong>{author['sh_name']}</strong>    
     """
-    return HttpResponse(text)
+    return render(request, 'index.html')
 
 def about(request):
     text = f"""
