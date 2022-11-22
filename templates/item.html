@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>{{item.name}}</title>
@@ -8,7 +8,8 @@
     <a href="/">Домой</a> / <a href="/items">Список товаров</a>
 </header>
 <body>
- Товар: {{item.name}}<br>
-Количество: {{item.quantity}}
+
+<h1>Страница товара: {{item.name}} {{item.brand}}</h1><br>
+Количество: {{item.count|default:"Товар отсутствует"}}
 </body>
 </html>

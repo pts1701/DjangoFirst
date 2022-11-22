@@ -1,8 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>Список товаров</title>
+    <style>
+        li {
+            display: inline-block;
+            border: 2px solid blue;
+            padding: 10px;
+
+        }
+    </style>
 </head>
 <header>
     <a href="/">Домой</a> / <a href="/items">Список товаров</a>
@@ -11,7 +19,11 @@
 <h2>Список товаров</h2>
 <ol>
     {% for item in items %}
-    <a href="/item/{{item.id}}"><li>{{ item.name }}</li></a>
+    <a href="/item/{{item.id}}">
+        <li>
+            <div>{{ item.name }}</div>
+            <div>{{item.info}}</div>
+        </li></a>
     {% endfor %}
 </ol>
 </body>
