@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<header>
-    <a href="/">Домой</a> / <a href="/items">Список товаров</a>
-</header>
-<h1>Главная страница</h1>
-<h2><a href="/items">Список товаров</a></h2>
-</body>
-</html>
+{% extends 'base.html' %}
+{%block title%}
+    <title>Главная</title>
+{%endblock%}
+{%block style%}
+<link rel="stylesheet" href="/static/style.css">
+{%endblock%}
+{% block content %}
+<h1 class="demo">Главная страница</h1>
+
+{% endblock %}

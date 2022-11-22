@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    {%block title%}
+    <title>Title</title>
+    {%endblock%}
+    {% block style %}
+        {# Это общая css для всех страниц #}
+       <link rel="stylesheet" href="/static/style.css">
+        {# Но каждая страница может содержать доп.уникальные css #}
+    {% endblock %}
+
+</head>
+<html lang="ru">
+{%include "header.html" %}
+<body>
+
+<main>
+    {#  Содержимое этого блока уникально на каждой странице #}
+    {% block content %}
+    {% endblock %}
+</main>
+{%include "footer.html" %}
+</body>
+</html>

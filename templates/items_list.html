@@ -1,30 +1,19 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
+{% extends 'base.html' %}
+{%block title%}
     <title>Список товаров</title>
-    <style>
-        li {
-            display: inline-block;
-            border: 2px solid blue;
-            padding: 10px;
-
-        }
-    </style>
-</head>
-<header>
-    <a href="/">Домой</a> / <a href="/items">Список товаров</a>
-</header>
-<body>
+{%endblock%}
+{% block style %}
+    <link rel="stylesheet" href="/static/style.css">
+{% endblock %}
+{% block content %}
 <h2>Список товаров</h2>
 <ol>
     {% for item in items %}
-    <a href="/item/{{item.id}}">
-        <li>
+    <a href="{% url 'item-detail' item.id %}">
+        <li class="card">
             <div>{{ item.name }}</div>
-            <div>{{item.info}}</div>
+            <div>{{ item.info }}</div>
         </li></a>
     {% endfor %}
 </ol>
-</body>
-</html>
+{% endblock %}

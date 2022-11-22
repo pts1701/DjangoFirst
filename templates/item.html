@@ -1,15 +1,8 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>{{item.name}}</title>
-</head>
-<header>
-    <a href="/">Домой</a> / <a href="/items">Список товаров</a>
-</header>
-<body>
-
+{% extends 'base.html' %}
+{%block title%}
+    <title>{{item.name}} {{item.brand}}</title>
+{%endblock%}
+{% block content %}
 <h1>Страница товара: {{item.name}} {{item.brand}}</h1><br>
 Количество: {{item.count|default:"Товар отсутствует"}}
-</body>
-</html>
+{% endblock %}
